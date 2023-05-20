@@ -1,0 +1,31 @@
+div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 4px;
+  border: 1px solid rgb(209, 209, 209);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #ffffff;
+  margin-left: 30px;
+  cursor: text;
+  transition: 0.5s;
+
+  &:hover {
+    border: 1px solid orange;
+  }
+
+  img {
+    fill: gray;
+  }
+  form {
+    display: flex;
+    justify-content: flex-start;
+    input {
+      outline: none;
+      border: none;
+      min-width: 900px;
+      margin-left: 10px;
+    }
+  }
+}

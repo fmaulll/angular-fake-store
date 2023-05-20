@@ -1,0 +1,6 @@
+<div [formGroup]="applySearch" (click)="focusInput()">
+  <img src="/assets/Search.svg" alt="asd" />
+  <form (submit)="handleSearch()">
+    <input #search type="text" formControlName="search" />
+  </form>
+</div>
