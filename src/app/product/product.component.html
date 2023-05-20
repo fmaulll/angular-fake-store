@@ -1,4 +1,4 @@
-<div class="container">
+<a [routerLink]="['/details', product.id]" class="container">
   <img [src]="product.image" alt="product.title" />
   <div class="product-info">
     <h5>{{ product.title.slice(0, 40) + "..." }}</h5>
@@ -7,4 +7,4 @@
       <p>{{ product.rating.rate }} | {{ product.rating.count }}</p>
     </div>
   </div>
-</div>
+</a>
