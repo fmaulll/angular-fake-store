@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { SearchInputComponent } from '../search-input/search-input.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
+  imports: [SearchInputComponent, RouterModule],
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']

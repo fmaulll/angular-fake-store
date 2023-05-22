@@ -18,4 +18,20 @@ export class ProductService {
     const data = await result.json()
     return data ?? []
   }
+
+  async getProductById(id: number): Promise<Product | undefined> {
+    const result = await fetch(`${this.url}/products/${id}`);
+    if (result.status !== 200) {
+      alert("Something Went Wrong!")
+    }
+    const data = await result.json()
+    console.log(data)
+    return data ?? {}
+  }
+
+  // getHousingLocationById(id: number): HousingLocation | undefined {
+  //   return this.housingLocationList.find(
+  //     (housingLocation) => housingLocation.id === id
+  //   );
+  // }
 }

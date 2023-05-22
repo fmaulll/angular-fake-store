@@ -1,0 +1,29 @@
+<div class="container">
+  <img class="product-image" [src]="product!.image" alt="" />
+  <div class="details">
+    <h3>{{ product!.title }}</h3>
+    <div class="rating">
+      <img class="star" src="/assets/Star.svg" alt="star" />
+      <h4>{{ product!.rating!.rate }} | {{ product!.rating!.count }} Rating</h4>
+    </div>
+    <h1>$ {{ product!.price }}</h1>
+    <div class="cart-quantity">
+      <div class="quantity-container">
+        <p>Quantity</p>
+        <div class="quantity">
+          <button (click)="decrement()">-</button>
+          <h3>{{ quantity }}</h3>
+          <button (click)="increment()">+</button>
+        </div>
+      </div>
+      <button class="add-to-cart">
+        Add to Cart <img src="/assets/Cart.svg" alt="" />
+      </button>
+    </div>
+    <div class="details">
+      <h3>Details</h3>
+      <p>{{ product!.description }}</p>
+    </div>
+  </div>
+  <div></div>
+</div>
