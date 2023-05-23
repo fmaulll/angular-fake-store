@@ -29,6 +29,14 @@ export class ProductService {
     return data ?? {}
   }
 
+  convertRupiah(value:number): string {
+    return new Intl.NumberFormat("id-ID", {
+      maximumSignificantDigits: 4,
+      style: "currency",
+      currency: "IDR",
+    }).format(value * 15000);
+  }
+
   // getHousingLocationById(id: number): HousingLocation | undefined {
   //   return this.housingLocationList.find(
   //     (housingLocation) => housingLocation.id === id

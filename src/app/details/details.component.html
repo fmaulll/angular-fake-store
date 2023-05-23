@@ -6,7 +6,7 @@
       <img class="star" src="/assets/Star.svg" alt="star" />
       <h4>{{ product!.rating!.rate }} | {{ product!.rating!.count }} Rating</h4>
     </div>
-    <h1>$ {{ product!.price }}</h1>
+    <h1>{{ productService.convertRupiah(product!.price) }}</h1>
     <div class="cart-quantity">
       <div class="quantity-container">
         <p>Quantity</p>
@@ -16,11 +16,15 @@
           <button (click)="increment()">+</button>
         </div>
       </div>
-      <button class="add-to-cart">
+      <div class="total-container">
+        <p>Total</p>
+        <h3>{{ productService.convertRupiah(total) }}</h3>
+      </div>
+      <button (click)="addToCart()" class="add-to-cart">
         Add to Cart <img src="/assets/Cart.svg" alt="" />
       </button>
     </div>
-    <div class="details">
+    <div class="description">
       <h3>Details</h3>
       <p>{{ product!.description }}</p>
     </div>

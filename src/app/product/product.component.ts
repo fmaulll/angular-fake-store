@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Product } from '../product';
 import { RouterModule } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   standalone: true,
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
+  productService: ProductService = inject(ProductService)
   @Input() product!: Product;
   
   constructor() {

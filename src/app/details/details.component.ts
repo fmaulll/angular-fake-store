@@ -16,10 +16,11 @@ export class DetailsComponent {
   productService: ProductService = inject(ProductService);
   product: Product | undefined;
   quantity: number = 1;
-  total: number | undefined;
+  total: number;
 
   constructor() {
     const productId = Number(this.route.snapshot.params['id']);
+    this.total = 0
     this.productService
       .getProductById(productId)
       .then((product) => {
@@ -39,5 +40,20 @@ export class DetailsComponent {
     }
     this.quantity -= 1;
     this.total = this.product!.price * this.quantity
+  }
+
+  addToCart():void {
+    const cart = JSON.parse(localStorage.getItem('cart')!)
+    const itemIndex = cart.findIndex((item: any) => item.id === this.product?.id)
+    if (itemIndex !== -1) {
+      cart.splice(itemIndex, 1)
+    }
+    cart.push({
+      ...this.product,
+      quantity: this.quantity,
+      total: this.total
+    })
+
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 }

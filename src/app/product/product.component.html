@@ -3,7 +3,7 @@
   <div class="product-info">
     <h5>{{ product.title.slice(0, 40) + "..." }}</h5>
     <div>
-      <h3>$ {{ product.price }}</h3>
+      <h3>{{ productService.convertRupiah(product!.price) }}</h3>
       <p>{{ product.rating.rate }} | {{ product.rating.count }}</p>
     </div>
   </div>
