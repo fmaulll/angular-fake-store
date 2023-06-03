@@ -1,1 +1,12 @@
-<p>cart-item works!</p>
+<div class="item">
+  <img [src]="cartItem.image" alt="" />
+  <div class="content">
+    <h3>{{ cartItem.title }}</h3>
+    <h3>{{ productService.convertRupiah(cartItem.price) }}</h3>
+    <div class="quantity">
+      <button (click)="decrement()">-</button>
+      <h3>{{ quantity }}</h3>
+      <button (click)="increment()">+</button>
+    </div>
+  </div>
+</div>
