@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartItem } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   standalone: true,
@@ -12,9 +13,15 @@ import { CartItem } from '../product';
 })
 export class CartComponent {
   cartList: CartItem[] = []
+  productService: ProductService = inject(ProductService)
+  totalItems: number = 0;
+  totalPrice: number = 0
 
   constructor() {
     this.cartList = JSON.parse(localStorage.getItem('cart')!)
-    console.log(this.cartList)
+    this.cartList?.map((item) => {
+      this.totalItems += item.quantity
+      this.totalPrice += item.total
+    })
   }
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
-import { CartItem } from '../product';
+import { CartItem, Product } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { ProductService } from '../product.service';
 export class CartItemComponent {
   @Input() cartItem!: CartItem;
   productService: ProductService = inject(ProductService);
+  product: Product | undefined;
   quantity: number = 1;
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class CartItemComponent {
 
   increment() {
     this.quantity += 1;
+    this.addToCart()
   }
 
   decrement() {
@@ -30,5 +32,20 @@ export class CartItemComponent {
       return;
     }
     this.quantity -= 1;
+    this.addToCart()
+  }
+
+  addToCart():void {
+    const cart = JSON.parse(localStorage.getItem('cart')!)
+    const itemIndex = cart.findIndex((item: any) => item.id === this.product?.id)
+    if (itemIndex !== -1) {
+      cart.splice(itemIndex, 1)
+    }
+    cart.push({
+      ...this.product,
+      quantity: this.quantity,
+    })
+
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 }

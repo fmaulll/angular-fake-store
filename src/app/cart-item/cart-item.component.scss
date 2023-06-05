@@ -8,9 +8,15 @@
     object-fit: contain;
   }
   .content {
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
     justify-content: space-between;
+
+    .title {
+      font-weight: 400;
+    }
   }
   .quantity {
     display: flex;
