@@ -1,3 +1,23 @@
-<div class="container">
-    <app-cart-item *ngFor="let cart of cartList" [cartItem]="cart"></app-cart-item>
+<div class="wrapper">
+  <div class="container">
+    <app-cart-item
+      *ngFor="let cart of cartList"
+      [cartItem]="cart"
+    ></app-cart-item>
+  </div>
+  <div class="total-container">
+    <div class="total">
+      <div class="summary">
+        <h3>Shopping Summary</h3>
+        <div>
+          <p>Total Barang ({{this.totalItems}} barang)</p>
+        </div>
+      </div>
+      <div class="total-price">
+        <h4>Total Harga</h4>
+        <h4>{{this.productService.convertRupiah(this.totalPrice)}}</h4>
+      </div>
+      <button>Beli ({{this.totalItems}})</button>
+    </div>
+  </div>
 </div>
