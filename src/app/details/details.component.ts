@@ -43,7 +43,7 @@ export class DetailsComponent {
   }
 
   addToCart():void {
-    const cart = JSON.parse(localStorage.getItem('cart')!)
+    const cart = JSON.parse(localStorage.getItem('cart')!) || []
     const itemIndex = cart.findIndex((item: any) => item.id === this.product?.id)
     if (itemIndex !== -1) {
       cart.splice(itemIndex, 1)
