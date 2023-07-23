@@ -3,10 +3,15 @@
   <div class="content">
     <h3 class="title">{{ cartItem.title }}</h3>
     <h3>{{ productService.convertRupiah(cartItem.price) }}</h3>
-    <div class="quantity">
-      <button (click)="decrement()">-</button>
-      <h3>{{ quantity }}</h3>
-      <button (click)="increment()">+</button>
+    <div class="quantity-delete">
+      <div class="quantity">
+        <button (click)="decrement()">-</button>
+        <h3>{{ quantity }}</h3>
+        <button (click)="increment()">+</button>
+      </div>
+      <div class="delete">
+        <img src="/assets/Trash.svg" alt="" />
+      </div>
     </div>
   </div>
 </div>
