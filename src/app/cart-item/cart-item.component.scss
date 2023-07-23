@@ -13,25 +13,42 @@
     flex-direction: column;
     gap: 10px;
     justify-content: space-between;
+    width: 100%;
 
     .title {
       font-weight: 400;
     }
   }
-  .quantity {
+  .quantity-delete {
     display: flex;
-    align-items: center;
-    width: 100px;
     justify-content: space-between;
-    border-radius: 4px;
-    border: 1px solid rgb(209, 209, 209);
+    .quantity {
+      display: flex;
+      align-items: center;
+      width: 100px;
+      justify-content: space-between;
+      border-radius: 4px;
+      border: 1px solid rgb(209, 209, 209);
 
-    button {
-      border: none;
-      padding: 10px;
-      outline: none;
-      background-color: rgb(209, 209, 209);
+      button {
+        border: none;
+        padding: 10px;
+        outline: none;
+        background-color: rgb(209, 209, 209);
+        cursor: pointer;
+      }
+    }
+    .delete {
+      padding: 5px 10px;
+      border-radius: 4px;
+      width: min-content;
       cursor: pointer;
+      &:hover {
+        background-color: rgb(230, 230, 230);
+      }
+      img {
+        width: 30px;
+      }
     }
   }
 }
